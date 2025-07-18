@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+                             http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="3.0">
+
+
+
+  <display-name>Archetype Created Web Application</display-name>
+
+  <display-name>Attendance Management System</display-name>
+
+  <!-- Session Configuration -->
+  <session-config>
+    <session-timeout>30</session-timeout>
+  </session-config>
+
+  <!-- Welcome File List -->
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+
+  <!-- Authentication Filter -->
+  <filter>
+    <filter-name>AuthenticationFilter</filter-name>
+    <filter-class>com.attendance.filter.AuthenticationFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>AuthenticationFilter</filter-name>
+    <url-pattern>/admin/*</url-pattern>
+    <url-pattern>/teacher/*</url-pattern>
+    <url-pattern>/student/*</url-pattern>
+    <dispatcher>REQUEST</dispatcher>
+  </filter-mapping>
+
+  <!-- Login Servlets -->
+  <servlet>
+    <servlet-name>AdminLoginServlet</servlet-name>
+    <servlet-class>com.attendance.controller.AdminLoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminLoginServlet</servlet-name>
+    <url-pattern>/admin/login</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>AdminDashboardServlet</servlet-name>
+    <servlet-class>com.attendance.controller.AdminDashboardServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>AdminDashboardServlet</servlet-name>
+    <url-pattern>/admin/dashboard</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>AdminViewAttendanceServlet</servlet-name>
+    <servlet-class>com.attendance.controller.AdminViewAttendanceServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>AdminViewAttendanceServlet</servlet-name>
+    <url-pattern>/admin/attendance/view</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>SendSmsServlet</servlet-name>
+    <servlet-class>com.attendance.controller.SendSmsServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>SendSmsServlet</servlet-name>
+    <url-pattern>/admin/send-sms</url-pattern>
+  </servlet-mapping>
+
+
+  <servlet>
+    <servlet-name>TeacherLoginServlet</servlet-name>
+    <servlet-class>com.attendance.controller.TeacherLoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TeacherLoginServlet</servlet-name>
+    <url-pattern>/teacher/login</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>TeacherDashboardServlet</servlet-name>
+    <servlet-class>com.attendance.controller.TeacherDashboardServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>TeacherDashboardServlet</servlet-name>
+    <url-pattern>/teacher/dashboard</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>StudentLoginServlet</servlet-name>
+    <servlet-class>com.attendance.controller.StudentLoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>StudentLoginServlet</servlet-name>
+    <url-pattern>/student/login</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>StudentDashboardServlet</servlet-name>
+    <servlet-class>com.attendance.controller.StudentDashboardServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>StudentDashboardServlet</servlet-name>
+    <url-pattern>/student/dashboard</url-pattern>
+  </servlet-mapping>
+
+  <!-- Logout Servlet -->
+  <servlet>
+    <servlet-name>LogoutServlet</servlet-name>
+    <servlet-class>com.attendance.controller.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LogoutServlet</servlet-name>
+    <url-pattern>/logout</url-pattern>
+  </servlet-mapping>
+
+
+  <!-- Student Management Servlet -->
+  <servlet>
+    <servlet-name>StudentManagementServlet</servlet-name>
+    <servlet-class>com.attendance.controller.StudentManagementServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>StudentManagementServlet</servlet-name>
+    <url-pattern>/admin/student</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>StudentViewAttendanceServlet</servlet-name>
+    <servlet-class>com.attendance.controller.StudentViewAttendanceServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>StudentViewAttendanceServlet</servlet-name>
+    <url-pattern>/student/view-attendance</url-pattern>
+  </servlet-mapping>
+  <!-- Teacher Management Servlet -->
+  <servlet>
+    <servlet-name>TeacherManagementServlet</servlet-name>
+    <servlet-class>com.attendance.controller.TeacherManagementServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TeacherManagementServlet</servlet-name>
+    <url-pattern>/admin/teachers</url-pattern>
+  </servlet-mapping>
+
+
+  <!-- Subject Management Servlet -->
+  <servlet>
+    <servlet-name>SubjectManagementServlet</servlet-name>
+    <servlet-class>com.attendance.controller.SubjectManagementServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SubjectManagementServlet</servlet-name>
+    <url-pattern>/admin/subjects</url-pattern>
+  </servlet-mapping>
+
+  <!-- Attendance Management Servlet -->
+  <servlet>
+    <servlet-name>AttendanceManagementServlet</servlet-name>
+    <servlet-class>com.attendance.controller.AttendanceManagementServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AttendanceManagementServlet</servlet-name>
+    <url-pattern>/attendance/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>AttendanceChartServlet</servlet-name>
+    <servlet-class>com.attendance.controller.AttendanceChartServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>AttendanceChartServlet</servlet-name>
+    <url-pattern>/admin/attendance/charts</url-pattern>
+  </servlet-mapping>
+
+  <!-- Mark Attendance Servlet -->
+  <servlet>
+    <servlet-name>MarkAttendanceServlet</servlet-name>
+    <servlet-class>com.attendance.controller.MarkAttendanceServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>MarkAttendanceServlet</servlet-name>
+    <url-pattern>/teacher/mark-attendance</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>ViewAttendanceServlet</servlet-name>
+    <servlet-class>com.attendance.controller.ViewAttendanceServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>ViewAttendanceServlet</servlet-name>
+    <url-pattern>/teacher/view-attendance</url-pattern>
+  </servlet-mapping>
+  <!-- Error Pages -->
+  <error-page>
+    <error-code>404</error-code>
+    <location>/error.jsp</location>
+  </error-page>
+  <error-page>
+    <error-code>500</error-code>
+    <location>/error.jsp</location>
+  </error-page>
+
+  <!-- Security Constraints -->
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>Admin Area</web-resource-name>
+      <url-pattern>/admin/dashboard.jsp</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>admin</role-name>
+    </auth-constraint>
+  </security-constraint>
+
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>Teacher Area</web-resource-name>
+      <url-pattern>/teacher/dashboard.jsp</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>teacher</role-name>
+    </auth-constraint>
+  </security-constraint>
+
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>Student Area</web-resource-name>
+      <url-pattern>/student/dashboard.jsp</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>student</role-name>
+    </auth-constraint>
+  </security-constraint>
+
+  <!-- Security Roles -->
+  <security-role>
+    <role-name>admin</role-name>
+  </security-role>
+  <security-role>
+    <role-name>teacher</role-name>
+  </security-role>
+  <security-role>
+    <role-name>student</role-name>
+  </security-role>
+</web-app>
+
